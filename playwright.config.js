@@ -17,8 +17,8 @@ import { isArrayBufferView } from "util/types";
 export default defineConfig({
   // testDir: './tests',
   testMatch: /\/tests\/.*\.spec\.js/,
-  globalSetup: require.resolve("./globalSetup"),
-  globalTeardown: require.resolve("./globalTeardown"),
+  globalSetup: "./globalSetup",
+  globalTeardown: "./globalTeardown",
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -62,7 +62,7 @@ export default defineConfig({
           fullPage: true,
           mode: "on",
         },
-        baseURL: "https://qauto/forstudy/space/",
+        baseURL: "https://qauto.forstudy.space/",
       },
     },
     {
