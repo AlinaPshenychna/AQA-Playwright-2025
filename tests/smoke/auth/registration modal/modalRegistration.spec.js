@@ -17,17 +17,12 @@ test.describe("successful registration", () => {
     const signupRepeatPassword = modal.locator("#signupRepeatPassword");
     const registerBtn = modal.locator(".btn-primary", { hasText: "Register" });
 
-    await signupName.focus();
     await signupName.fill(faker.person.firstName());
-    await signupLastName.focus();
     await signupLastName.fill(faker.person.lastName());
-    await signupEmail.focus();
     await signupEmail.fill(
       `aqa-jhon${faker.number.int({ min: 10, max: 99 })}@test.qa`
     );
-    await signupPassword.focus();
     await signupPassword.fill("12345678aA");
-    await signupRepeatPassword.focus();
     await signupRepeatPassword.fill("12345678aA");
     await expect(registerBtn).toBeVisible();
     await expect(registerBtn).toBeEnabled();
@@ -42,17 +37,12 @@ test.describe("successful registration", () => {
     const signupRepeatPassword = modal.locator("#signupRepeatPassword");
     const registerBtn = modal.locator(".btn-primary", { hasText: "Register" });
 
-    await signupName.focus();
     await signupName.fill(faker.person.firstName());
-    await signupLastName.focus();
     await signupLastName.fill(faker.person.lastName());
-    await signupEmail.focus();
     await signupEmail.fill(
       `aqa-jhon${faker.number.int({ min: 10, max: 99 })}@test.qa`
     );
-    await signupPassword.focus();
     await signupPassword.fill("12345678aA");
-    await signupRepeatPassword.focus();
     await signupRepeatPassword.fill("12345678aA");
     await expect(registerBtn).toBeVisible();
     await expect(registerBtn).toBeEnabled();
@@ -88,7 +78,6 @@ test.describe("validation field Name", () => {
     const error = modal.locator(".invalid-feedback");
     const paragraphes = error.locator("p");
 
-    await signupName.focus();
     await signupName.fill("2");
     await signupName.blur();
 
@@ -106,7 +95,6 @@ test.describe("validation field Name", () => {
     const signupName = modal.locator("#signupName");
     const error = modal.locator(".invalid-feedback");
 
-    await signupName.focus();
     await signupName.fill("a");
     await signupName.blur();
 
@@ -121,7 +109,6 @@ test.describe("validation field Name", () => {
     const signupName = modal.locator("#signupName");
     const error = modal.locator(".invalid-feedback");
 
-    await signupName.focus();
     await signupName.fill("qqqqqqqqqqqqqqqqqqqqq");
     await signupName.blur();
 
@@ -169,7 +156,6 @@ test.describe("validation field Last Name", () => {
     const error = modal.locator(".invalid-feedback");
     const paragraphes = error.locator("p");
 
-    await signupLastName.focus();
     await signupLastName.fill("2");
     await signupLastName.blur();
 
@@ -187,7 +173,6 @@ test.describe("validation field Last Name", () => {
     const signupLastName = modal.locator("#signupLastName");
     const error = modal.locator(".invalid-feedback");
 
-    await signupLastName.focus();
     await signupLastName.fill("b");
     await signupLastName.blur();
 
@@ -202,7 +187,6 @@ test.describe("validation field Last Name", () => {
     const signupLastName = modal.locator("#signupLastName");
     const error = modal.locator(".invalid-feedback");
 
-    await signupLastName.focus();
     await signupLastName.fill("qqqqqqqqqqqqqqqqqqqqq");
     await signupLastName.blur();
 
@@ -249,7 +233,6 @@ test.describe("validation field Email", () => {
     const signupEmail = modal.locator("#signupEmail");
     const error = modal.locator(".invalid-feedback");
 
-    await signupEmail.focus();
     await signupEmail.fill("ali");
     await signupEmail.blur();
 
@@ -294,7 +277,6 @@ test.describe("validation field Password", () => {
     const signupPassword = modal.locator("#signupPassword");
     const error = modal.locator(".invalid-feedback");
 
-    await signupPassword.focus();
     await signupPassword.fill("123");
     await signupPassword.blur();
     await expect(error).toBeVisible();
@@ -340,7 +322,6 @@ test.describe("validation field Re-enter password", () => {
     const signupRepeatPassword = modal.locator("#signupRepeatPassword");
     const error = modal.locator(".invalid-feedback");
 
-    await signupRepeatPassword.focus();
     await signupRepeatPassword.fill("123");
     await signupRepeatPassword.blur();
     await expect(error).toBeVisible();
@@ -369,7 +350,6 @@ test.describe("validation field Re-enter password", () => {
     const signupPassword = modal.locator("#signupPassword");
     const signupRepeatPassword = modal.locator("#signupRepeatPassword");
     const error = modal.locator(".invalid-feedback");
-
 
     await signupPassword.fill("1234567aA");
     await signupRepeatPassword.fill("1234567aZ");
