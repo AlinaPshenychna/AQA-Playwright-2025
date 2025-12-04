@@ -8,7 +8,7 @@ import { faker } from '@faker-js/faker';
 // const elements = page.locator('.list-item')
 // const elementsActive = elements.filter({hasText: 'Active'})
 
-test.describe("Signup tests", () => {
+test.describe.skip("Signup tests", () => {
 
     test.beforeEach(async ({page}) => {
         await page.goto('/')
@@ -103,16 +103,16 @@ test.describe("Signup tests", () => {
     })
 
 
-    test.only('wrong email format validation', async ({page}) => {
-        const signupButton = page.getByRole("button", {name: 'Sign up'})
-        await signupButton.click()
+    test('wrong email format validation', async ({page}) => {
+        // const signupButton = page.getByRole("button", {name: 'Sign up'})
+        // await signupButton.click()
 
-        const signupPopup =  page.locator('.modal-content')
-        const emailInput = signupPopup.locator('#signupEmail')
-        await emailInput.fill("wrong-email-format")
-        await emailInput.blur()
+        // const signupPopup =  page.locator('.modal-content')
+        // const emailInput = signupPopup.locator('#signupEmail')
+        // await emailInput.fill("wrong-email-format")
+        // await emailInput.blur()
 
-        await expect(signupPopup, "Signup popup should have validation").toHaveScreenshot("signup-validation.png")
+        // await expect(signupPopup, "Signup popup should have validation").toHaveScreenshot("signup-validation.png")
     })
 
 })

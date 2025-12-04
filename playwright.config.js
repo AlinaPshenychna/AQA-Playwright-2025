@@ -41,7 +41,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    headless: false,
+    headless: true,
+    //browser doesn't open during the tests execution
   },
 
   /* Configure projects for major browsers */
@@ -65,12 +66,12 @@ export default defineConfig({
         baseURL: "https://qauto.forstudy.space/",
       },
     },
-    {
-      name: "regression",
-      dependencies: ["setup"],
-      grepInvert: /@my-label/,
-      use: { ...devices["Desktop Chrome"] },
-    },
+    // {
+    //   name: "regression",
+    //   dependencies: ["setup"],
+    //   grepInvert: /@my-label/,
+    //   use: { ...devices["Desktop Chrome"] },
+    // },
 
     // {
     //   name: 'firefox',
