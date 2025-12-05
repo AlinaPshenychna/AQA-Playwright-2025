@@ -114,5 +114,4 @@ test.describe.skip("Signup tests", () => {
 
         // await expect(signupPopup, "Signup popup should have validation").toHaveScreenshot("signup-validation.png")
     })
-
 })
