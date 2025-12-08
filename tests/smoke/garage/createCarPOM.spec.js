@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/test";
-import GaragePage from "../../../src/pageObjects/garage/GaragePage.js";
-import MainPage from "../../../src/pageObjects/main/MainPage.js";
+import GaragePage from "../../../src/pages_objects/garage/GaragePage.js";
+import MainPage from "../../../src/pages_objects/main/MainPage.js";
 
 test.describe("Create car as guest user POM", () => {
   let garagePage;
 
   test.beforeEach(async ({ page }) => {
     const mainPage = new MainPage(page);
-    const garagePage = new GaragePage(page);
+    garagePage = new GaragePage(page);
 
     await mainPage.navigate();
     await mainPage.loginAsGuest();
@@ -29,7 +29,7 @@ test.describe("Create car as guest user POM", () => {
       garagePage.carCard,
       "Car should have valid model"
     ).toContainText(model);
-    
+
     await expect(
       garagePage.carCardMileageInput,
       "Car should have valid mileage"
@@ -37,7 +37,9 @@ test.describe("Create car as guest user POM", () => {
   });
 });
 
-test.describe.only("Create car as guest user POM 2", () => {
+
+
+test.describe("Create car as guest user POM 2", () => {
   let garagePage;
 
   test.beforeEach(async ({ page }) => {

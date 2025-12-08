@@ -10,10 +10,12 @@ export default class CarCard extends BaseComponent {
     this.mileageInput = this.container.locator('[name="miles"]');
   }
 
+
   async assertBrand(expected) {
-    await expect(this.container, "Car should have valid brand").toContainText(
-      brand
-    );
+    await expect(
+      this.container,
+      "Car should have valid brand"
+    ).toContainText(expected);
   }
 
   async assertModel(expected) {

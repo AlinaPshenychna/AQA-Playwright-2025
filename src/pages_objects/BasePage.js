@@ -9,5 +9,4 @@ export default class BasePage {
   }
 }
 
-
 //main class step 1
