@@ -1,0 +1,25 @@
+import BaseComponent from "../../BaseComponent.js";
+
+export default class AddCarPopup extends BaseComponent {
+  constructor(page) {
+    super(page);
+    this.container = page.locator(".modal-content");
+    this.brandSelect = this.container.getByLabel("Brand");
+    this.modelSelect = this.container.getByLabel("Model");
+    this.mileageInput = this.container.getByRole("spinbutton", {
+      name: "Mileage",
+    });
+    this.submitBtn = this.container.getByRole("button", { name: "Add" });
+  }
+
+  async fillForm({ brand, model, mileage }) {
+    await this.brandSelect.selectOption(brand);
+    await this.modelSelect.selectOption(model);
+    await this.mileageInput.fill(mileage);
+  }
+
+  async createCar({ brand, model, mileage }) {
+    await this.fillForm({ brand, model, mileage });
+    await this.submitBtn.click();
+  }
+}
