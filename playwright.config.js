@@ -1,15 +1,13 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
-import { fileURLToPath } from "url";
-import { isArrayBufferView } from "util/types";
-
+import config from "./config/config.js";
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+// import dotenv from "dotenv";
+// // import path from 'path';
+// dotenv.config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -31,15 +29,8 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: "https://qauto.forstudy.space/",
-    httpCredentials: {
-      username: "guest",
-      password: "welcome2qauto",
-    },
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    baseURL: config.baseURL,
+    httpCredentials: config.httpCredentials,
     trace: "on-first-retry",
     headless: true,
     //browser doesn't open during the tests execution
