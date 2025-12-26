@@ -1,10 +1,10 @@
 import { test as setup } from "@playwright/test";
-import MainPage from "../../src/pages_objects/main/MainPage";
+import MainPage from "../../src/pages_objects/main/MainPage.js";
 
 setup("Login as admin", async ({ page, context }) => {
   // store in .env file
   const adminCredentials = {
-    email: "staranadmin@test.com",
+    email: "alian@team.qa",
     password: "Password123",
   };
 
