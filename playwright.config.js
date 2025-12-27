@@ -47,6 +47,7 @@ export default defineConfig({
       name: "smoke",
       dependencies: ["setup"],
       use: {
+        storageState: "state/adminStorageState.json",
         ...devices["Desktop Chrome"],
         viewport: { width: 1920, height: 1080 },
         trace: "on",

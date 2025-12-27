@@ -21,4 +21,13 @@ export default class MainPage extends BasePage {
     await this.registrationPopup.root.waitFor({ state: "visible" });
     return this.registrationPopup;
   }
+
+      async loginWithCredentials({email, password}){
+        await this.page.getByText('Sign In').click()
+        const modal = this.page.locator('.modal-body')
+        await modal.locator('#signinEmail').fill(email)
+        await modal.locator('#signinPassword').fill(password)
+        await this.page.getByText('Login').click()
+        // await expect(this.page.getByText('Log out')).toBeVisible()
+    }
 }
