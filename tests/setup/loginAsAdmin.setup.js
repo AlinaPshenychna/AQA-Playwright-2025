@@ -4,7 +4,7 @@ import MainPage from "../../src/pages_objects/main/MainPage.js";
 setup("Login as admin", async ({ page, context }) => {
   // store in .env file
   const adminCredentials = {
-    email: "alian@team.qa",
+    email: "aliaan@team.qa",
     password: "Password123",
   };
 
