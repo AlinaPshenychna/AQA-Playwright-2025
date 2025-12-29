@@ -1,8 +1,8 @@
 import { guestTest } from "../../../src/customFixtures/guestFixture.js";
 import { expect } from "@playwright/test"; 
 
-guestTest.describe.only("Intercept user profile name", () => {
-  guestTest("mock user name", async ({ garagePage, page }) => {
+guestTest.describe("Intercept user profile name", () => {
+  guestTest("moпшеck user name", async ({ garagePage, page }) => {
     const mockedUserName = {
       status: "ok",
       data: [

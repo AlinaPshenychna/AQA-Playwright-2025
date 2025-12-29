@@ -1,6 +1,6 @@
 import {adminFixture} from "../../../src/customFixtures/adminFixture.js";
 
-adminFixture.describe.only("use storage state @my-label", () => {
+adminFixture.describe("use storage state @my-label", () => {
 
     adminFixture('Create car', async ({page, garagePage}) => {
 
