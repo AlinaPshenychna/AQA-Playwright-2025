@@ -1,34 +1,42 @@
-import { guestTest } from "../../../src/customFixtures/guestFixture.js";
-import { expect } from "@playwright/test"; 
+import {guestTest} from "../../../src/customFixtures/guestFixture.js";
 
-guestTest.describe("Intercept user profile name", () => {
-  guestTest("moпшеck user name", async ({ garagePage, page }) => {
-    const mockedUserName = {
-      status: "ok",
-      data: [
-        {
-          userId: 316917,
-          photoFilename: "default-user.png",
-          name: "ronnie",
-          lastName: "dog",
-        },
-      ],
-    };
-       await page.goto("**/panel/profile");
-          await page.goto("/panel/profile");
-    await guestTest.step("Create a new user name", async () => {
-      await page.route("**/panel/garage", async (route) => {
-        await route.fulfill({
-          status: 200,
-          body: JSON.stringify(mockedUserName),
-        });
-      });
-      await page.goto("/panel/profile");
+guestTest.describe("Intercept request", () => {
+    guestTest('Abort get car brands', async ({garagePage, page}) => {
+        await guestTest.step("Create a new car", async () => {
+            await page.route("**/cars/brands", async (route)=>{
+                await route.abort('internetdisconnected')
+            })
+           await garagePage.openAddCarPopup()
+           await page.pause()
+        })
+    })
 
-      await page.goto("**/users/profile");
-      const nameLocator = page.locator(".profile_name");
-      await expect(nameLocator).toBeVisible();
-      await page.pause();
-    });
-  });
-});
+
+    guestTest('mock car brands', async ({garagePage, page}) => {
+        const mockedBrands = {
+            "status": "ok",
+            "data": [
+                {
+                "id": 1,
+                "title": "Hello",
+                "logoFilename": "audi.png"
+            },
+                {
+                "id": 2,
+                "title": "World",
+                "logoFilename": "bmw.png"
+            }
+            ]
+        }
+        await guestTest.step("Create a new car", async () => {
+            await page.route("**/cars/brands", async (route)=>{
+                await route.fulfill({
+                    status: 200,
+                    body: JSON.stringify(mockedBrands)
+                })
+            })
+            await garagePage.openAddCarPopup()
+            await page.pause()
+        })
+    })
+})
