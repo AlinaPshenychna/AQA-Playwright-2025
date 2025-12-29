@@ -3,12 +3,11 @@ name: "Automated tests with Playwright"
 on:
   workflow_dispatch:
   pull_request:
-      types: [ opened, synchronize ]
-
+    types: [opened, synchronize]
 
 jobs:
   playwright-tests:
-    runs-on: macOS-26.2
+    runs-on: macos-latest
     container: mcr.microsoft.com/playwright:v1.56.1-jammy
     steps:
       - name: "Checkout repository"
