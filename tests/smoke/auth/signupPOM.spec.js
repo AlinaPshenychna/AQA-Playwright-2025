@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 import MainPage from "../../../src/pages_objects/main/MainPage";
 
-test.describe.only("Signup test POM", () => {
+test.describe("Signup test POM", () => {
   test("Signup with valid credentials (POM)", async ({ page }) => {
     const main = new MainPage(page);
     await main.navigate();
